@@ -6,6 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static util.ActionsOnSite.click;
 
@@ -42,6 +46,9 @@ public class MainPage {
 
     public MainPage clickChangeCityButton() {
         click(driver, changeCityButton);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//input[contains(@class, 'change')]")));
         return this;
     }
 
@@ -68,6 +75,8 @@ public class MainPage {
     public void clickChapter(String chapter) {
         WebElement chapterElement = driver.findElement(
                 By.xpath("//li[contains(@class,'menu_main')]/a[contains(text(),'" + chapter + "')]"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+        wait.until(ExpectedConditions.elementToBeClickable(chapterElement));
         click(driver, chapterElement);
     }
 }
