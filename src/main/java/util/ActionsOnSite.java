@@ -7,5 +7,10 @@ import org.openqa.selenium.interactions.Actions;
 public class ActionsOnSite {
     public static void click(WebDriver driver, WebElement element){
         new Actions(driver).click(element).build().perform();
+        System.out.println(
+        );
+        System.out.println();
+        System.out.println();
+
     }
 }
