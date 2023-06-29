@@ -9,8 +9,6 @@ public class ActionsOnSite {
         new Actions(driver).click(element).build().perform();
         System.out.println(
         );
-        System.out.println();
-        System.out.println();
 
     }
 }
